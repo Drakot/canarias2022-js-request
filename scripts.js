@@ -47,11 +47,16 @@ async function onRequestAsync() {
 }
 
 function showData(data) {
+    const lista = document.getElementById("lista")
 
     for (const user of data) {
-        console.log(user.id + " - " + user.name)
-    }
+        //console.log(user.id + " - " + user.name)
+        const li = document.createElement("li")
 
+        li.textContent = user.name
+
+        lista.appendChild(li)
+    }
 }
 
 
