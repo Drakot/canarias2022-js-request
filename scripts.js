@@ -4,7 +4,9 @@ btRequest.addEventListener('click', () => {
     onRequestAsync()
 })
 
+
 function onRequest() {
+    //Test git
     fetch('https://jsonplaceholder.typicode.com/users')
         .then(data => {
             if (!data.ok) {
