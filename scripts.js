@@ -48,13 +48,21 @@ async function onRequestAsync() {
 
 function showData(data) {
     const lista = document.getElementById("lista")
-
+    // <li><a href="http://google.com">Test</a></li>
     for (const user of data) {
         //console.log(user.id + " - " + user.name)
         const li = document.createElement("li")
+        const a = document.createElement("a")
 
-        li.textContent = user.name
+        //Forma concatenar 1
+        a.href = `http://${user.website}`
 
+        //Forma concatenar 2
+        a.href = "http://" + user.website
+
+        a.textContent = user.name
+
+        li.appendChild(a)
         lista.appendChild(li)
     }
 }
