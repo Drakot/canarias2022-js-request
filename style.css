@@ -1,0 +1,40 @@
+.btn-primary {
+  background-color: #1e7792;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+  border-radius: 4px;
+  margin: 0 10px;
+  border: none;
+  transition: 0.3s;
+  font-size: 16px;
+  font-family: "Times";
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btn-primary:hover {
+  background-color: #0c0f91;
+}
+
+.btn-primary.no-margin {
+  margin: 0 0px;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+}
+
+.container {
+  width: 1024px;
+  margin: 0 auto;
+}
