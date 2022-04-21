@@ -55,14 +55,23 @@ function showData(data) {
     //lista.innerHTML = ""
 
     if (contador == 2) {
-        data.push({ id: 11, name: "Gepetto Equisdé", website: "url.com" });
+        data.push({
+            id: 11, name: "Gepetto Equisdé", website: "url.com", address: {
+                geo: {
+                    lat: "-37.3159",
+                }
+            }
+        });
     }
 
     for (const user of data) {
         //console.log(user.id + " - " + user.name)
         //Solucion 2. con filter
+
+
+
         const newUser = usersTemporal.find(newUser => newUser.id == user.id);
-        console.log(newUser)
+        console.log(user.address.geo.lat)
         //Comparacion 1
         //if(newUser === undefinded){
         //Comparacion 2
