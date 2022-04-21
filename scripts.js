@@ -1,6 +1,7 @@
 const btRequest = document.getElementById('btRequest')
-
+let contador = 0
 btRequest.addEventListener('click', () => {
+    contador++
     onRequestAsync()
 })
 
@@ -46,25 +47,44 @@ async function onRequestAsync() {
     }
 }
 
+let usersTemporal = []
 function showData(data) {
     const lista = document.getElementById("lista")
-    // <li><a href="http://google.com">Test</a></li>
+    console.log(contador)
+    //Solucion 1. Borrar los datos de la lista para que no se repitan despues
+    //lista.innerHTML = ""
+
+    if (contador == 2) {
+        data.push({ id: 11, name: "Gepetto Equisdé", website: "url.com" });
+    }
+
     for (const user of data) {
         //console.log(user.id + " - " + user.name)
-        const li = document.createElement("li")
-        const a = document.createElement("a")
+        //Solucion 2. con filter
+        const newUser = usersTemporal.find(newUser => newUser.id == user.id);
+        console.log(newUser)
+        //Comparacion 1
+        //if(newUser === undefinded){
+        //Comparacion 2
+        if (!newUser) {
+            const li = document.createElement("li")
+            const a = document.createElement("a")
 
-        //Forma concatenar 1
-        a.href = `http://${user.website}`
+            //Forma concatenar 1
+            a.href = `http://${user.website}`
 
-        //Forma concatenar 2
-        a.href = "http://" + user.website
+            //Forma concatenar 2
+            a.href = "http://" + user.website
 
-        a.textContent = user.name
+            a.textContent = user.name
 
-        li.appendChild(a)
-        lista.appendChild(li)
+            li.appendChild(a)
+            lista.appendChild(li)
+        }
+
     }
+
+    usersTemporal = data
 }
 
 
