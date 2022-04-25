@@ -68,7 +68,7 @@ function showData(data) {
 
     for (const user of data) {
         //console.log(user.id + " - " + user.name)
-        //Solucion 2. con filter
+        //Solucion 2. con find
 
         const newUser = usersTemporal.find(newUser => newUser.id == user.id);
         console.log(user.address.geo.lat)
