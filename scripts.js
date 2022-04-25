@@ -1,5 +1,7 @@
 const btRequest = document.getElementById('btRequest')
 let contador = 0
+
+onRequestAsync()
 btRequest.addEventListener('click', () => {
     contador++
     onRequestAsync()
@@ -68,16 +70,20 @@ function showData(data) {
         //console.log(user.id + " - " + user.name)
         //Solucion 2. con filter
 
-
-
         const newUser = usersTemporal.find(newUser => newUser.id == user.id);
         console.log(user.address.geo.lat)
         //Comparacion 1
         //if(newUser === undefinded){
         //Comparacion 2
         if (!newUser) {
-            const li = document.createElement("li")
+            const div = document.createElement("div")
             const a = document.createElement("a")
+            const img = document.createElement("img")
+            const pNombre = document.createElement("p")
+            const pCatch = document.createElement("p")
+
+            div.classList.add("celda")
+            img.classList.add("image")
 
             //Forma concatenar 1
             a.href = `http://${user.website}`
@@ -85,10 +91,19 @@ function showData(data) {
             //Forma concatenar 2
             a.href = "http://" + user.website
 
-            a.textContent = user.name
+            a.textContent = user.website
 
-            li.appendChild(a)
-            lista.appendChild(li)
+            img.src = "https://picsum.photos/200"
+
+            pNombre.textContent = user.name
+            pCatch.textContent = user.company.catchPhrase
+
+            div.appendChild(img)
+            div.appendChild(pNombre)
+            div.appendChild(pCatch)
+            div.appendChild(a)
+
+            lista.appendChild(div)
         }
 
     }

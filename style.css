@@ -38,3 +38,25 @@ textarea {
   width: 1024px;
   margin: 0 auto;
 }
+
+.celda {
+  margin-top: 20px;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.celda:hover {
+  background-color: #bebec7;
+}
+
+#lista {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
