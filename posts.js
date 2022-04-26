@@ -54,13 +54,20 @@ function showData(posts) {
 
     const lista = document.getElementById("lista")
     for (const post of posts) {
+        const a = document.createElement("a")
         const div = document.createElement("div")
         const img = document.createElement("img")
         const pTitle = document.createElement("h2")
         const pUser = document.createElement("p")
 
+        //camelCase
+        //Forma 1 de concatenar
+        a.href = "comments.html?postId=" + post.id
+        //Forma 2
+        a.href = `comments.html?postId=${post.id}`
+
         img.classList.add("image", "userProfile")
-        div.classList.add("post")
+        a.classList.add("post")
 
         const user = users.find(newUser => newUser.id == post.userId);
 
@@ -72,7 +79,11 @@ function showData(posts) {
         div.appendChild(pTitle)
         div.appendChild(img)
         div.appendChild(pUser)
-        lista.appendChild(div)
+
+        a.appendChild(div)
+
+
+        lista.appendChild(a)
     }
 }
 

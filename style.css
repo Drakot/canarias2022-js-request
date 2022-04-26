@@ -68,6 +68,8 @@ textarea {
 
 .post {
   width: 33.33%;
+  text-decoration: none;
+  color: #000;
 }
 
 .lista {
