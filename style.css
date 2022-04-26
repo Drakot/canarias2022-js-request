@@ -60,3 +60,17 @@ textarea {
   border-radius: 50%;
   object-fit: cover;
 }
+
+.image.userProfile {
+  height: 60px;
+  width: 60px;
+}
+
+.post {
+  width: 33.33%;
+}
+
+.lista {
+  display: flex;
+  flex-wrap: wrap;
+}

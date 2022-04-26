@@ -46,13 +46,34 @@ async function onRequestAsync() {
 onRequestAsync()
 
 function showData(posts) {
+    //Como aleatorizar los posts
+    //Forma 1
+    posts.sort(() => Math.random() - 0.5);
+    //Forma 2
+    posts = shuffle(posts)
+
     const lista = document.getElementById("lista")
     for (const post of posts) {
+        const div = document.createElement("div")
+        const img = document.createElement("img")
+        const pTitle = document.createElement("h2")
+        const pUser = document.createElement("p")
 
-        const p = document.createElement("p")
+        img.classList.add("image", "userProfile")
+        div.classList.add("post")
 
-        p.textContent = post.title
+        const user = users.find(newUser => newUser.id == post.userId);
 
-        lista.appendChild(p)
+        div.id = user.id
+        pTitle.textContent = post.title
+        img.src = user.picture
+        pUser.textContent = user.name
+
+        div.appendChild(pTitle)
+        div.appendChild(img)
+        div.appendChild(pUser)
+        lista.appendChild(div)
     }
 }
+
+function shuffle(a) { for (var c, d, b = a.length; 0 !== b;)d = Math.floor(Math.random() * b), b -= 1, c = a[b], a[b] = a[d], a[d] = c; return a }
