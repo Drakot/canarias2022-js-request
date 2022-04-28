@@ -1,32 +1,28 @@
-async function requestAlbums(users) {
+async function requestAlbumsWithUsers() {
     try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/albums');
-        if (!response.ok) {
+        const responseUsers = await fetch('https://jsonplaceholder.typicode.com/users');
+        if (!responseUsers.ok) {
             const message = `Error: ${response.status}`;
             throw new Error(message);
         }
-        const albums = await response.json();
-        showData(albums, users);
+
+        const users = await responseUsers.json();
+
+
+        const responseAlbums = await fetch('https://jsonplaceholder.typicode.com/albums');
+        if (!responseAlbums.ok) {
+            const message = `Error: ${response.status}`;
+            throw new Error(message);
+        }
+        const albums = await responseAlbums.json();
+
+        showData(albums, users)
     } catch (error) {
         console.log(error)
     }
 }
 
-async function requestUsers() {
-    try {
-        const response = await fetch('https://jsonplaceholder.typicode.com/users');
-        if (!response.ok) {
-            const message = `Error: ${response.status}`;
-            throw new Error(message);
-        }
-        const users = await response.json();
-        requestAlbums(users)
-    } catch (error) {
-        console.log(error)
-    }
-}
-
-requestUsers()
+requestAlbumsWithUsers()
 
 function showData(albums, users) {
     albums.sort(() => Math.random() - 0.5);
